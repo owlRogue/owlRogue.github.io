@@ -1,0 +1,263 @@
+* {
+    font-family: "Josefin Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-size: 27px;
+}
+
+.navbar.navbar-default {
+    width: 960px%;
+    background: #ffffff;
+    border-radius: 0px;
+    padding-left: 80px;
+    border-color: none;
+    border: 0px;
+}
+
+.navbar-default >li>a:link {
+    color: #777777;
+}
+
+.navbar-default li>a:visited {
+    color: #715588;
+}
+
+.navbar-default li>a:hover {
+    color: #4aaaa5;
+    background-color: white;
+    border-radius: 0px;
+    border: 0px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    border: 0px;
+}
+
+.nav.nav-tabs {
+    border-bottom: 0px;
+    width: auto;
+    height: auto;
+    display: inline;
+}
+
+/* --------------------------------------- B O D Y----------------------------------- */
+
+.tab {
+    overflow: hidden;
+}
+
+.hr {
+    float: left;
+    width: auto;
+}
+
+body {
+    position: relative;
+    background-repeat: repeat;
+    background-attachment: absolute;
+    background-image: url("assets/random_grey_variations/random_grey_variations.png");
+  }
+
+.tabcontent {
+    max-width: 600px;
+}
+
+.container-fluid {
+    padding: 10px;
+    height: auto;
+}
+
+.container-fluid-2 {
+    padding: 10px;
+    
+}
+
+.col-md-8 {
+    margin-right: 15px;
+    margin-left: 80px;
+    float: left;
+    padding: 0px;
+}
+
+#aboutTab, #portfolioTab, #contactTab {
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 10px;
+}
+
+
+li {
+    display: inline;
+    padding: 0px 5px 0px 5px;
+}
+
+
+.wrap {
+    float: left;
+    margin-right: 10px;
+}
+
+.col-md-4 {
+    padding: 10px;
+    background: white;
+    margin-left: 15px;
+    max-width: 270px;
+    float: left;
+
+}
+
+.row {
+    overflow: hidden;
+}
+
+#connect-content {
+    max-width: 270px;
+    text-align: center;
+    vertical-align: center;
+}
+
+/* --------------------------------------- F O R M ----------------------------------- */
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4aaaae;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #4aaaaae;
+}
+
+#shell {
+    border-radius: 2px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: auto;
+}
+
+input[type=text],
+select,
+    {
+    color: #4aaaae;
+}
+
+/* --------------------------------------- F O O T E R ----------------------------------- */
+
+.footer {
+    text-align: center;
+    padding-top: 8px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top: 8px;
+    border-top-color: #4aaaa5;
+    border-top-width: 100%;
+};
+
+.text-muted {
+    opacity: 20%;
+    line-height: 17px;
+}
+
+
+/* ----------- M E D I A   Q U E R I E S ---------- */
+
+@media screen and (max-width: 980px) {
+    .navbar.navbar-default {
+        margin-right: 10px;
+        width: auto;
+        min-width: 640px;
+        margin-left: 0px;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .col-md-4 {
+        width: 100%;
+    }    
+
+    .col-md-8 {
+        width: 600px;
+    }
+
+    .connect-content {
+        margin-left: 10px;
+    }
+};
+
+
+
+    @media screen and (max-width: 768px) {
+        .navbar.navbar-default {
+            margin-right: 10px;
+            width: auto;
+            min-width: 600px;
+            margin-left: 0px;
+            padding-left: 0px;
+            text-align: center;
+        }
+    
+        .col-md-4 {
+            padding: 10px;
+            position: relative;
+            width: 100%;
+
+        }    
+    
+        .col-md-8 {
+            margin-right: 15px;
+            margin-left: 10px;
+            float: left;
+            padding: 0px;
+        }
+    };
+
+        #connect-content {
+            margin-left: 10px;
+        };
+
+        @media screen and (max-width: 640px) {
+            .navbar.navbar-default {
+                margin-right: 10px;
+                width: auto;
+                min-width: 600px;
+                margin-left: 10px;
+                padding-left: 0px;
+                text-align: center;
+            }
+        
+        .connect-content {
+                padding: 10px;
+                width: 100%;
+            }    
+        
+            .col-md-8 {
+                min-width: 400px;
+                margin-left: 20px;
+            }
+        
+            #connect-content {
+                margin-left: 10px;
+            }
+        }
