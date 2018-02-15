@@ -178,7 +178,7 @@ select,
 .text-muted {
     opacity: 20%;
     line-height: 17px;
-};
+}
 
 
 /* ----------- M E D I A   Q U E R I E S ---------- */
@@ -260,4 +260,4 @@ select,
             #connect-content {
                 margin-left: 10px;
             }
-        };
+        }
