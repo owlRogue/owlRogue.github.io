@@ -59,7 +59,6 @@ body {
     position: relative;
     background-repeat: repeat;
     background-attachment: absolute;
-    background-image: url("assets/random_grey_variations/random_grey_variations.png");
   }
 
 .tabcontent {
@@ -178,7 +177,7 @@ select,
 .text-muted {
     opacity: 20%;
     line-height: 17px;
-}
+};
 
 
 /* ----------- M E D I A   Q U E R I E S ---------- */
@@ -260,4 +259,4 @@ select,
             #connect-content {
                 margin-left: 10px;
             }
-        }
+        };
