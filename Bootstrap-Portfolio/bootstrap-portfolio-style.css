@@ -59,7 +59,7 @@ body {
     position: relative;
     background-repeat: repeat;
     background-attachment: absolute;
-    background-image: url("assets/random_grey_variations/random_grey_variations.png");
+    background-image: url("random_grey_variations.png");
   }
 
 .tabcontent {
