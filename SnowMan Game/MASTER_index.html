@@ -75,8 +75,13 @@
 
     #letterBox,
     #scoreboard,
-    #vocab {
+    #vocab,
+    #fillInBlanks {
         padding: 10px;
+    }
+
+    #fillInBlanks {
+        height: 200px;
     }
 
     #clear {
@@ -135,7 +140,18 @@
         <!-- <div class="row" id="OpeningContent" -->
         <div class="row" id="mainContent">
 
+
+
             <!-- Guessed Letters -->
+            <div class="col-lg-6">
+                <br>
+                <div class="card">
+                    <p class="card-header">blanks</p>
+                    <div class="display" id="fillInBlanks"></div>
+                </div>
+
+            </div>
+
             <div class="col-lg-6">
                 <br>
                 <div class="card">
@@ -188,25 +204,16 @@
                         <!-- Critical Injuries (AKA Deaths (aka lives)) -->
                         <span class="count" id="criticalInjuries">
                             jumps survived</span>
-                        </div>
-
                     </div>
 
                 </div>
+
             </div>
 
-                                <!-- Blank Spaces -->
-                                <div class="col-lg-6">
-                                    <br>
-                                    <div class="card">
-                                        <div class="display" id="fillInBlanks"></div>
-            
-                                        <!-- insert 1 blank for each letter in vocabWord[i] -->
-            
-            
-                                    </div>
-                                </div>
-                                
+
+
+
+
         </div>
     </div>
 
@@ -223,15 +230,8 @@
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/vocabList.js"></script>
     <script type="text/javascript">
-        
-       /* function setBoard() {
-            counter = 0;
-            guessedLetter = [];
-            vocabLength = 0;
-*/
-            
-        
         // Basic Variables
         var counter = 0;
         var isFirstPress = true;
@@ -279,6 +279,11 @@
         var snowboardDepart = new Audio('assets/audio/snowboardDepart.m4a');
         var themeSound = new Audio('assets/audio/Wind-Mark_DiAngelo-1940285615.mp3');
 
+        // Other Variables
+        var vocabWord = vocabWord;
+        var vocabBlanks = vocabBlanks;
+        var userGuess = userGuess;
+
         document.onkeypress = function (event) {
 
             $("#mainContent").css('visibility', 'visible');
@@ -288,9 +293,28 @@
             console.log("started snowboardDepart");
 
             themeSound.loop = true;
-            console.log("loop set")
+            console.log("loop set");
             themeSound.play();
             console.log("started themeSound");
+
+            vocabRecord = vocabList[Math.floor(Math.random() * vocabList.length)];
+
+            vocabWord = vocabRecord.vocabWord;
+            $("#fillInBlanks").append(vocabWord);
+            $(vocabWord.replace(/[a-z]/gi, "_"));
+            console.log($(this).text());
+
+            $("#fillInBlanks").append(vocabBlanks);
+            console.log(vocabBlanks)
+
+            vocabDef = vocabRecord.vocabDef;
+            console.log(vocabWord);
+            console.log("---------");
+
+            //$(vocabWord).replace(_);
+            $("#vocab").append(vocabDef);
+
+
 
             for (var i = 0; i < letters.length; i++) {
                 console.log(letters[i]);
@@ -299,23 +323,97 @@
                     .attr("data-letter", letters[i])
                     .text(letters[i])
                     .appendTo("#buttons");
-
             };
 
-            $(".letterButton").on("click", function () { // Inside the on-click event...
-                var guessedLetter = $("<div>") // variable called "guessedLetter" sets the variable equal to a new div
-                guessedLetter.addClass("guess-color");
-                guessedLetter.text($(this).attr("data-letter"));
-                $("#letterBox").append(guessedLetter);
 
-            });
 
             $("#clear").on("click", function () {
                 $("#letterBox").empty();
             });
         };
-    
-    /*
+
+        var handleLetterPress = function (event) {
+            var userGuess = '';
+            if (event.key) {
+                userGuess = event.key;
+            } else {
+                userGuess = $(this).attr("data-letter")
+            }
+            var guessedLetter = $("<span>") // variable called "guessedLetter" sets the variable equal to a new span
+
+            guessedLetter.addClass("guess-color");
+            guessedLetter.text(userGuess);
+            $("#letterBox").append(guessedLetter);
+        }
+
+        $("#buttons").on("click", ".letterButton", handleLetterPress);
+
+        $(document).on('keyup', handleLetterPress);
+
+        var lives = function (event) {
+                var counter = ' '
+                if (vocabWord.indexOf(userGuess) != -1) {
+                    //do something
+                } else {
+                    //do something 
+                }
+
+                jumpsTaken++;
+
+                /* function setBoard() {
+                                        counter = 0;
+                                        guessedLetter = [];
+                                        vocabLength = 0;
+                            */
+
+
+
+                document.ononkeyup = function (event) {
+                    console.log("press");
+                    processLetter(event.key);
+                };
+
+                if (counter === landingTarget) {
+                    alert("You win!");
+                } else if (counter >= landingTarget) {
+                    alert("You lose!!");
+                }
+
+                jumpsTaken++;
+
+
+                /*
+                vocabRecord = vocabList[Math.floor(Math.random() * vocabList.length)];
+                console.log(vocabRecord);
+
+                for (var j = 0; j < vocabWord.length; j++) {
+                    var vocabWord = vocabList[j].vocabWord;
+                    var vocabWord = document.createElement("container");
+                    var blanksHolder = document.createTextNode("_");
+                    vocabWord.appendChild(blanksHolder);
+                    document.getElementById("fillInBlanks").appendChild(fillLetters);
+
+                    // push letters into array
+                    for (var k = 0; k < vocabWordord.length; k++) {
+                        fillLetters.push(vocabWord.charAt[k]);
+                    }
+
+                    var fillDef = vocabList[j].vocabDef;
+                    var fillDef = document.createElement("P");
+                    var definitionHolder = document.createTextNode(".");
+                    fillDef.appendChild(definitionHolder);
+                    document.getElementById("vocab").appendChild(fillDef);
+                };
+
+                */
+
+
+
+
+
+
+
+                /*
         var targetWord = "allmountain";
   $("#word-to-guess").text(targetWord);
   var counter = 0;
@@ -352,11 +450,6 @@
     else if (counter >= targetWord) {
       alert("You lose!!");
     } */
-
-
-
-  
-
     </script>
 </body>
 
