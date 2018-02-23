@@ -174,37 +174,39 @@
                     <div class="display" id="scoreboard">
                         <br>
                         <!-- Jumps Survived -->
-                        <div class="count" id="jumpsSurvived">
+                        <span class="count" id="jumpsSurvived">
                             <h5>jumps survived</h5>
                             <span>jumps survived</span>
-                        </div>
+                        </span>
 
                         <!-- Jumps NOT Survived -->
-                        <div class="count" id="jumpsCrashed">
+                        <span class="count" id="jumpsCrashed">
                             <h5>jumps crashed</h5>
                             <span>jumps survived</span>
-                        </div>
+                        </span>
 
                         <!-- Critical Injuries (AKA Deaths (aka lives)) -->
-                        <div class="count" id="criticalInjuries">
-                            <h5>lives left</h5>
-                            <span>jumps survived</span>
+                        <span class="count" id="criticalInjuries">
+                            jumps survived</span>
                         </div>
 
                     </div>
-                    <!-- Blank Spaces -->
-                    <div class="col-lg-12">
-                        <br>
-                        <div class="card">
-                            <div class="display" id="fillInBlanks"></div>
 
-                            <!-- insert 1 blank for each letter in vocabWord[i] -->
-
-
-                        </div>
-                    </div>
                 </div>
             </div>
+
+                                <!-- Blank Spaces -->
+                                <div class="col-lg-6">
+                                    <br>
+                                    <div class="card">
+                                        <div class="display" id="fillInBlanks"></div>
+            
+                                        <!-- insert 1 blank for each letter in vocabWord[i] -->
+            
+            
+                                    </div>
+                                </div>
+                                
         </div>
     </div>
 
@@ -222,9 +224,18 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+        
+       /* function setBoard() {
+            counter = 0;
+            guessedLetter = [];
+            vocabLength = 0;
+*/
+            
+        
         // Basic Variables
-        var jumpsTaken = 0;
+        var counter = 0;
         var isFirstPress = true;
+
 
         // Arrays
         var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
@@ -268,7 +279,6 @@
         var snowboardDepart = new Audio('assets/audio/snowboardDepart.m4a');
         var themeSound = new Audio('assets/audio/Wind-Mark_DiAngelo-1940285615.mp3');
 
-
         document.onkeypress = function (event) {
 
             $("#mainContent").css('visibility', 'visible');
@@ -304,6 +314,49 @@
                 $("#letterBox").empty();
             });
         };
+    
+    /*
+        var targetWord = "allmountain";
+  $("#word-to-guess").text(targetWord);
+  var counter = 0;
+  var vocabList = ["All-Mountain", "Backside", "Outback"]; //expanding our array to include four options.
+
+  for (var i = 0; i < vocabList.length; i++) { // create a for loop to create words for every numberOption.
+    var vocabBlanks = $("<span>"); // For each iteration, we create a span for vocabBlanks
+
+    vocabBlanks.addClass("blanks"); // First each word will be given the class "blanks".
+    vocabBlanks.attr("data-wordvalue", vocabList[i]);
+    $("#blanks").append(vocabBlanks); // add words to the page.
+  }
+
+  $(".blanks").keypress(function(event) {   // This time, our click event applies to every single word on the page. Not just one.
+
+    // Determining the word's value requires us to extract the length from the word.
+    // Using the $(this) keyword specifies that we should be extracting the word value of the clicked word.
+    // Using the .attr("data-wordLength") allows us to grab the value out of the "data-wordLength" attribute.
+    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    
+    var wordValue = ($(this).attr("data-wordvalue"));
+    wordValue = parseInt(wordValue);
+    // We then add the wordLength to the user's "counter" which is a global variable.
+    // Every click, from every word adds to the global counter.
+    counter += wordValue;
+
+    // All of the same game win-lose logic applies. So the rest remains unchanged.
+    alert("New score: " + counter);
+
+    if (counter === targetWord) {
+      alert("You win!");
+    }
+
+    else if (counter >= targetWord) {
+      alert("You lose!!");
+    } */
+
+
+
+  
+
     </script>
 </body>
 
