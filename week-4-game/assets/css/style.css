@@ -1,0 +1,121 @@
+body {
+  font-family: "Josefin Sans";
+  background-color: aliceblue;
+
+}
+
+.coverAll {
+  background-size: cover;
+}
+
+.container {
+  margin: auto;
+  width: auto;
+  z-index: 1000;
+}
+
+.trick-image {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+#tricks, #scores {
+  display: inline;
+  max-width: 860px;
+  }
+
+.card {
+  border: 1px;
+  border-color: slategray;
+  border-radius: 2px;
+  padding: 15px;
+  max-width: 880px;
+  background-color: inherit;
+  position: relative;
+  display: inline;
+}
+
+#number {
+  background-color: black;
+  color: white;
+}
+
+.score {
+  color: azure;
+  background-color: rgb(97, 167, 214);
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding-top: 30px;
+  padding-left: 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.jumbotron {
+    margin: 0px;
+    background-size: cover;
+    background: url('../../assets/images/snow_jumbo.gif') no-repeat top center;
+    color: white;
+    border-radius: 0;
+    font-size: 34px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url('../../assets/images/snow_jumbo.gif') no-repeat bottom center;
+    background-size: cover;
+    min-height: 20px;
+    font-size: 15px;
+    float: center bottom;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+
+#clear {
+    position: absolute;
+    left: 0;
+    font-size: 28px;
+    color: white;
+    border-style: none;
+    width: auto;
+    height: 100%;
+    background-color: rgb(97, 167, 214);
+    border: 0px;
+}
+
+h1 {
+    font-size: 37;
+  }
+
+/*     MEDIA QUERY     */
+
+@media screen and (max-width: 980px) {
+  #card840widemax {
+      min-width: 870px;
+  };
+
+
+@media screen and (max-width: 768px) {
+};
+
+@media screen and (max-width: 640px) {
+  
+  #card840widemax {
+    min-width: 480px;
+  }
+
+  .card-header {
+    min-width: 420px;
+  }
+
+};
+}
