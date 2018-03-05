@@ -276,13 +276,18 @@
         ];
 
         // Media Variables
-        var snowboardDepart = new Audio('assets/audio/snowboardDepart.m4a');
-        var themeSound = new Audio('assets/audio/Wind-Mark_DiAngelo-1940285615.mp3');
+        var snowboardDepart = new audio('assets/audio/snowboardDepart.m4a');
+        var themeSound = new audio('assets/audio/Wind-Mark_DiAngelo-1940285615.mp3');
+        var intro = new audio("assets/audio/snowboardDepart.m4a");
 
         // Other Variables
         var vocabWord = vocabWord;
         var vocabBlanks = vocabBlanks;
         var userGuess = userGuess;
+        var jumpsTaken = jumpsTaken;
+        var counter = [10 - jumpsTaken];
+        var delayButtonAlert;
+
 
         document.onkeypress = function (event) {
 
@@ -315,7 +320,6 @@
             $("#vocab").append(vocabDef);
 
 
-
             for (var i = 0; i < letters.length; i++) {
                 console.log(letters[i]);
 
@@ -324,13 +328,6 @@
                     .text(letters[i])
                     .appendTo("#buttons");
             };
-
-
-
-            $("#clear").on("click", function () {
-                $("#letterBox").empty();
-            });
-        };
 
         var handleLetterPress = function (event) {
             var userGuess = '';
@@ -351,61 +348,50 @@
         $(document).on('keyup', handleLetterPress);
 
         var lives = function (event) {
-                var counter = ' '
-                if (vocabWord.indexOf(userGuess) != -1) {
-                    //do something
-                } else {
-                    //do something 
-                }
+            var jumpsTaken = ' '
+            if (vocabWord.indexOf(userGuess) != -1) {
+                //do something
+            } else {
+                //do something 
+            }
 
-                jumpsTaken++;
-
-                /* function setBoard() {
-                                        counter = 0;
-                                        guessedLetter = [];
-                                        vocabLength = 0;
-                            */
+            jumpsTaken++;
+        };
 
 
 
-                document.ononkeyup = function (event) {
-                    console.log("press");
-                    processLetter(event.key);
-                };
-
-                if (counter === landingTarget) {
-                    alert("You win!");
-                } else if (counter >= landingTarget) {
-                    alert("You lose!!");
-                }
-
-                jumpsTaken++;
+        /* function setBoard() {
+                                counter = 0;
+                                guessedLetter = [];
+                                vocabLength = 0;
+                    */
 
 
-                /*
-                vocabRecord = vocabList[Math.floor(Math.random() * vocabList.length)];
-                console.log(vocabRecord);
 
-                for (var j = 0; j < vocabWord.length; j++) {
-                    var vocabWord = vocabList[j].vocabWord;
-                    var vocabWord = document.createElement("container");
-                    var blanksHolder = document.createTextNode("_");
-                    vocabWord.appendChild(blanksHolder);
-                    document.getElementById("fillInBlanks").appendChild(fillLetters);
+        /*
+        vocabRecord = vocabList[Math.floor(Math.random() * vocabList.length)];
+        console.log(vocabRecord);
 
-                    // push letters into array
-                    for (var k = 0; k < vocabWordord.length; k++) {
-                        fillLetters.push(vocabWord.charAt[k]);
-                    }
+        for (var j = 0; j < vocabWord.length; j++) {
+            var vocabWord = vocabList[j].vocabWord;
+            var vocabWord = document.createElement("container");
+            var blanksHolder = document.createTextNode("_");
+            vocabWord.appendChild(blanksHolder);
+            document.getElementById("fillInBlanks").appendChild(fillLetters);
 
-                    var fillDef = vocabList[j].vocabDef;
-                    var fillDef = document.createElement("P");
-                    var definitionHolder = document.createTextNode(".");
-                    fillDef.appendChild(definitionHolder);
-                    document.getElementById("vocab").appendChild(fillDef);
-                };
+            // push letters into array
+            for (var k = 0; k < vocabWordord.length; k++) {
+                fillLetters.push(vocabWord.charAt[k]);
+            }
 
-                */
+            var fillDef = vocabList[j].vocabDef;
+            var fillDef = document.createElement("P");
+            var definitionHolder = document.createTextNode(".");
+            fillDef.appendChild(definitionHolder);
+            document.getElementById("vocab").appendChild(fillDef);
+        };
+
+        */
 
 
 
@@ -413,7 +399,7 @@
 
 
 
-                /*
+        /*
         var targetWord = "allmountain";
   $("#word-to-guess").text(targetWord);
   var counter = 0;
